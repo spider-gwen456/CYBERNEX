@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CYBERNEX - Explore cybersecurity, digital safety, and the future of online protection.">
+    <title>CYBERNEX | Secure Your Digital World</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+
+        :root {
+            --black: #090909;
+            --dark: #111013;
+            --burgundy: #590F29;
+            --burgundy-light: #851D40;
+            --silver: #AEB3BA;
+            --white: #F5F3F4;
+            --muted: #AAA4AA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: var(--silver);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: clamp(30px, 5vw, 48px);
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+
+        .section-title span {
+            color: #B84A70;
+        }
+
+        .section-description {
+            color: var(--muted);
+            line-height: 1.8;
+            max-width: 650px;
+        }
+
+        /* ===== NAVIGATION BAR ===== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(9, 9, 9, 0.88);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(174, 179, 186, 0.12);
+        }
+
+        nav {
+            width: 88%;
+            max-width: 1200px;
+            height: 76px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #A7355A;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--silver);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #E66A91;
+        }
+
+        .nav-button {
+            border: 1px solid var(--burgundy-light);
+            padding: 11px 19px;
+            border-radius: 5px;
+            color: white !important;
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background: var(--burgundy);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            color: white;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 70px;
+            background:
+                radial-gradient(ellipse at 80% 45%, rgba(89, 15, 41, 0.3), transparent 45%),
+                linear-gradient(120deg, #090909, #130B10);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            animation: fadeUp 1s ease both;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            color: #E3A9BC;
+            border: 1px solid rgba(184, 74, 112, 0.5);
+            padding: 9px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            background: rgba(89, 15, 41, 0.15);
+        }
+
+        .hero h1 {
+            font-size: clamp(43px, 7vw, 78px);
+            line-height: 1.08;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #B84A70;
+            text-shadow: 0 0 35px rgba(184, 74, 112, 0.3);
+        }
+
+        .hero p {
+            max-width: 570px;
+            color: var(--silver);
+            line-height: 1.9;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--burgundy);
+            color: white;
+            border: 1px solid var(--burgundy);
+        }
+
+        .btn-primary:hover {
+            background: #821D41;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(89, 15, 41, 0.4);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--silver);
+            color: var(--silver);
+        }
+
+        .btn-outline:hover {
+            background: var(--silver);
+            color: var(--black);
+        }
+
+        /* Animated decorative visual */
+
+        .hero-visual {
+            position: absolute;
+            right: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 310px;
+            height: 310px;
+            border: 1px solid rgba(184, 74, 112, 0.4);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .hero-visual::before,
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(174, 179, 186, 0.2);
+            border-radius: 50%;
+        }
+
+        .hero-visual::before {
+            inset: 25px;
+            animation: rotate 15s linear infinite;
+        }
+
+        .hero-visual::after {
+            inset: -25px;
+            border-style: dashed;
+            animation: rotate 25s linear infinite reverse;
+        }
+
+        .shield {
+            width: 125px;
+            height: 145px;
+            background: linear-gradient(145deg, #8A1D43, #260D19);
+            clip-path: polygon(50% 0%, 95% 18%, 88% 70%, 50% 100%, 12% 70%, 5% 18%);
+            display: grid;
+            place-items: center;
+            box-shadow: 0 0 50px rgba(184, 74, 112, 0.4);
+        }
+
+        .shield span {
+            font-size: 48px;
+            color: white;
+        }
+
+        .orbit-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--silver);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--silver);
+        }
+
+        .dot-one {
+            top: 15px;
+            left: 75px;
+        }
+
+        .dot-two {
+            bottom: 45px;
+            right: 0;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+
+        .about {
+            padding: 110px 0;
+            background: #100E10;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-visual {
+            min-height: 330px;
+            background: linear-gradient(145deg, #241019, #100E10);
+            border: 1px solid rgba(174, 179, 186, 0.15);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-visual::before {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 1px solid rgba(184, 74, 112, 0.35);
+            border-radius: 50%;
+            animation: pulse 3s infinite;
+        }
+
+        .about-icon {
+            font-size: 65px;
+            z-index: 1;
+        }
+
+        .about-visual h3 {
+            letter-spacing: 5px;
+            color: var(--silver);
+            z-index: 1;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        /* ===== THREATS SECTION ===== */
+
+        .threats {
+            padding: 110px 0;
+            background: var(--black);
+        }
+
+        .center-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .center-heading .section-description {
+            margin: auto;
+        }
+
+        .threat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .threat-card {
+            background: linear-gradient(145deg, #181316, #100E10);
+            border: 1px solid rgba(174, 179, 186, 0.12);
+            border-radius: 9px;
+            padding: 30px 23px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .threat-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background: #B84A70;
+            transition: 0.4s;
+        }
+
+        .threat-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(184, 74, 112, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .threat-card:hover::before {
+            width: 100%;
+        }
+
+        .threat-icon {
+            font-size: 34px;
+            margin-bottom: 22px;
+        }
+
+        .threat-card h3 {
+            font-size: 18px;
+            margin-bottom: 13px;
+        }
+
+        .threat-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* ===== SECURITY TIPS ===== */
+
+        .tips {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1B0B12, #100E10);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 22px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(174, 179, 186, 0.12);
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .tip:hover {
+            background: rgba(89, 15, 41, 0.25);
+            transform: translateX(5px);
+        }
+
+        .tip-number {
+            color: #D36B8D;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .tip h3 {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .tip p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* ===== STATS SECTION ===== */
+
+        .stats {
+            padding: 75px 0;
+            background: #0C0B0C;
+            border-top: 1px solid rgba(174, 179, 186, 0.1);
+            border-bottom: 1px solid rgba(174, 179, 186, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            gap: 25px;
+        }
+
+        .stat h2 {
+            color: #C75C80;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .stat p {
+            color: var(--silver);
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== CALL TO ACTION ===== */
+
+        .cta {
+            padding: 100px 20px;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at center, rgba(89, 15, 41, 0.35), transparent 70%),
+                #090909;
+        }
+
+        .cta h2 {
+            font-size: clamp(30px, 5vw, 46px);
+            margin-bottom: 18px;
+        }
+
+        .cta p {
+            color: var(--silver);
+            margin: 0 auto 30px;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer {
+            background: #080808;
+            border-top: 1px solid rgba(174, 179, 186, 0.12);
+            padding: 35px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-content p {
+            color: #858085;
+            font-size: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            color: var(--silver);
+            font-size: 12px;
+        }
+
+        .footer-links a:hover {
+            color: #D36B8D;
+        }
+
+        /* ===== ANIMATIONS ===== */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                margin-top: 0;
+            }
+            50% {
+                margin-top: -18px;
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(0.9);
+                opacity: 0.4;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.9;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+
+        @media (max-width: 900px) {
+            .hero-visual {
+                opacity: 0.22;
+                right: -80px;
+            }
+
+            .threat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            nav {
+                height: 68px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                width: 100%;
+                padding: 25px 6%;
+                background: #100E10;
+                border-bottom: 1px solid #39202A;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 22px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .hero-visual {
+                width: 220px;
+                height: 220px;
+                right: -100px;
+                opacity: 0.17;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .threat-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+
+
+        /* ===== CYBERNEX AI CHAT THEME ===== */
+        :root {
+            --chat--color-primary: #590F29;
+            --chat--color-primary-shade-50: #721638;
+            --chat--color-primary-shade-100: #851D40;
+            --chat--color-secondary: #851D40;
+            --chat--color-secondary-shade-50: #6F1735;
+            --chat--color-white: #F5F3F4;
+            --chat--color-light: #171216;
+            --chat--color-light-shade-50: #211920;
+            --chat--color-light-shade-100: #30232B;
+            --chat--color-medium: #AEB3BA;
+            --chat--color-dark: #090909;
+            --chat--color-disabled: #777078;
+            --chat--color-typing: #D7C8CF;
+            --chat--spacing: 1rem;
+            --chat--border-radius: 12px;
+            --chat--window--width: 380px;
+            --chat--window--height: 600px;
+            --chat--font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .chat-window-wrapper .chat-window {
+            border: 1px solid rgba(174, 179, 186, 0.2);
+            box-shadow: 0 18px 55px rgba(0, 0, 0, 0.55);
+        }
+
+        .chat-message-from-bot .chat-message-markdown,
+        .chat-message-from-user .chat-message-markdown {
+            line-height: 1.65;
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --chat--window--width: calc(100vw - 24px);
+                --chat--window--height: calc(100dvh - 110px);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+
+    <header>
+        <nav>
+            <a href="#home" class="logo">CYBER<span>NEX</span></a>
+
+            <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation" aria-expanded="false">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#threats">Threats</a></li>
+                <li><a href="#tips">Security Tips</a></li>
+                <li><a href="#contact" class="nav-button">Explore More</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- ===== HERO ===== -->
+
+    <section class="hero" id="home">
+
+        <div class="container">
+            <div class="hero-content">
+
+                <div class="hero-tag">
+                    ● THE FUTURE OF DIGITAL SECURITY
+                </div>
+
+                <h1>
+                    SECURE YOUR<br>
+                    <span>DIGITAL WORLD.</span>
+                </h1>
+
+                <p>
+                    Technology connects us to endless possibilities,
+                    but every connection comes with responsibility.
+                    Explore cybersecurity, understand digital threats,
+                    and take control of your online safety.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">
+                        Discover More →
+                    </a>
+
+                    <a href="#threats" class="btn btn-outline">
+                        Explore Threats
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+            <div class="shield">
+                <span>⌑</span>
+            </div>
+            <div class="orbit-dot dot-one"></div>
+            <div class="orbit-dot dot-two"></div>
+        </div>
+
+    </section>
+
+
+    <!-- ===== ABOUT ===== -->
+
+    <section class="about" id="about">
+
+        <div class="container about-grid">
+
+            <div class="about-visual reveal">
+                <div class="about-icon">🛡️</div>
+                <h3>CYBER SECURITY</h3>
+            </div>
+
+            <div class="about-text reveal">
+
+                <div class="section-label">01 / WHO WE ARE</div>
+
+                <h2 class="section-title">
+                    Understanding the <span>Digital Shield.</span>
+                </h2>
+
+                <p>
+                    CYBERNEX is a cybersecurity awareness platform
+                    designed to make digital security easier to understand.
+                </p>
+
+                <p>
+                    Cybersecurity is the practice of protecting
+                    computers, networks, systems, and sensitive
+                    information from unauthorized access and cyber attacks.
+                </p>
+
+                <p>
+                    Our goal is to encourage smarter digital habits
+                    and help people navigate the online world safely.
+                </p>
+
+                <a href="#tips" class="btn btn-primary">
+                    Learn Digital Safety →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===== COMMON CYBER THREATS ===== -->
+
+    <section class="threats" id="threats">
+
+        <div class="container">
+
+            <div class="center-heading reveal">
+
+                <div class="section-label">02 / KNOW THE RISKS</div>
+
+                <h2 class="section-title">
+                    Common Cyber <span>Threats.</span>
+                </h2>
+
+                <p class="section-description">
+                    Understanding common cyber threats is the first
+                    step towards building a safer digital environment.
+                </p>
+
+            </div>
+
+            <div class="threat-grid">
+
+                <div class="threat-card reveal">
+                    <div class="threat-icon">🎣</div>
+                    <h3>Phishing</h3>
+                    <p>
+                        Fraudulent messages or websites designed
+                        to trick people into revealing personal
+                        or sensitive information.
+                    </p>
+                </div>
+
+                <div class="threat-card reveal">
+                    <div class="threat-icon">🦠</div>
+                    <h3>Malware</h3>
+                    <p>
+                        Malicious software created to damage,
+                        disrupt, or gain unauthorized access
+                        to computer systems.
+                    </p>
+                </div>
+
+                <div class="threat-card reveal">
+                    <div class="threat-icon">🔒</div>
+                    <h3>Ransomware</h3>
+                    <p>
+                        A type of malware that locks or encrypts
+                        data and demands payment to restore access.
+                    </p>
+                </div>
+
+                <div class="threat-card reveal">
+                    <div class="threat-icon">🎭</div>
+                    <h3>Social Engineering</h3>
+                    <p>
+                        Psychological manipulation used to trick
+                        individuals into sharing confidential
+                        information or taking unsafe actions.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===== SECURITY TIPS ===== -->
+
+    <section class="tips" id="tips">
+
+        <div class="container">
+
+            <div class="reveal">
+
+                <div class="section-label">03 / STAY PROTECTED</div>
+
+                <h2 class="section-title">
+                    Build Better <span>Security Habits.</span>
+                </h2>
+
+                <p class="section-description">
+                    Small security practices can make a big
+                    difference in protecting your digital identity.
+                </p>
+
+            </div>
+
+            <div class="tips-grid">
+
+                <div class="tip reveal">
+                    <div class="tip-number">01</div>
+                    <div>
+                        <h3>Use Strong Passwords</h3>
+                        <p>
+                            Create unique passwords using a combination
+                            of letters, numbers, and symbols.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip reveal">
+                    <div class="tip-number">02</div>
+                    <div>
+                        <h3>Enable Two-Factor Authentication</h3>
+                        <p>
+                            Add an extra verification step to your
+                            accounts for improved protection.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip reveal">
+                    <div class="tip-number">03</div>
+                    <div>
+                        <h3>Avoid Suspicious Links</h3>
+                        <p>
+                            Verify unexpected messages and links
+                            before clicking or sharing information.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip reveal">
+                    <div class="tip-number">04</div>
+                    <div>
+                        <h3>Keep Software Updated</h3>
+                        <p>
+                            Install security updates to fix
+                            vulnerabilities and improve protection.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===== STATS ===== -->
+
+    <section class="stats">
+
+        <div class="container stats-grid">
+
+            <div class="stat reveal">
+                <h2 class="counter" data-target="100">0</h2>
+                <p>% AWARENESS MATTERS</p>
+            </div>
+
+            <div class="stat reveal">
+                <h2 class="counter" data-target="24">0</h2>
+                <p>HOURS OF DIGITAL CONNECTIVITY</p>
+            </div>
+
+            <div class="stat reveal">
+                <h2 class="counter" data-target="2">0</h2>
+                <p>LAYERS OF AUTHENTICATION</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===== CALL TO ACTION ===== -->
+
+    <section class="cta" id="contact">
+
+        <div class="container reveal">
+
+            <div class="section-label">04 / YOUR DIGITAL FUTURE</div>
+
+            <h2>
+                Think Smart. <span style="color:#B84A70">
+                Stay Secure.</span>
+            </h2>
+
+            <p>
+                Cybersecurity begins with awareness.
+                Make informed decisions, protect your information,
+                and become a responsible digital citizen.
+            </p>
+
+            <a href="#home" class="btn btn-primary">
+                Back To Top ↑
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===== FOOTER ===== -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <a href="#home" class="logo">
+                CYBER<span>NEX</span>
+            </a>
+
+            <p>
+                © <span id="year"></span> CYBERNEX.
+                All Rights Reserved.
+            </p>
+
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#threats">Threats</a>
+                <a href="#tips">Security</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ===== JAVASCRIPT ===== -->
+
+    <script>
+
+        // MOBILE NAVIGATION
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+
+            const isOpen = navLinks.classList.toggle("show");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+
+        });
+
+        // CLOSE MENU AFTER CLICKING A LINK
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("show");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+
+            });
+
+        });
+
+        // SCROLL REVEAL ANIMATION
+
+        const revealElements = document.querySelectorAll(".reveal");
+
+        if ("IntersectionObserver" in window) {
+
+            const observer = new IntersectionObserver((entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            }, {
+                threshold: 0.12
+            });
+
+            revealElements.forEach(element => {
+                observer.observe(element);
+            });
+
+        } else {
+
+            revealElements.forEach(element => {
+                element.classList.add("active");
+            });
+
+        }
+
+        // ANIMATED COUNTERS
+
+        const counters = document.querySelectorAll(".counter");
+
+        function animateCounter(counter) {
+
+            const target = Number(counter.dataset.target);
+            const duration = 1500;
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+
+                const progress = Math.min(
+                    (currentTime - startTime) / duration, 1
+                );
+
+                const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+                counter.textContent = Math.floor(
+                    easedProgress * target
+                );
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                }
+
+            }
+
+            requestAnimationFrame(updateCounter);
+
+        }
+
+        if ("IntersectionObserver" in window) {
+
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            }, {
+                threshold: 0.5
+            });
+
+            counters.forEach(counter => {
+                counterObserver.observe(counter);
+            });
+
+        } else {
+
+            counters.forEach(counter => {
+                counter.textContent = counter.dataset.target;
+            });
+
+        }
+
+        // AUTOMATIC COPYRIGHT YEAR
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+
+    <!-- ===== CYBERNEX AI CHATBOT ===== -->
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+            webhookUrl: 'https://faari.app.n8n.cloud/webhook/c417a81e-e0f2-458c-b9c6-37c33194e509/chat',
+            mode: 'window',
+            showWelcomeScreen: false,
+            defaultLanguage: 'en',
+            initialMessages: [
+                'Welcome to CYBERNEX AI.',
+                'Ask me anything about cybersecurity, malware, digital safety, or ethical hacking. I can adapt explanations to your experience level.'
+            ],
+            i18n: {
+                en: {
+                    title: 'CYBERNEX AI',
+                    subtitle: 'Your Cybersecurity Knowledge Assistant',
+                    footer: 'Learn responsibly. Stay secure.',
+                    getStarted: 'Start a conversation',
+                    inputPlaceholder: 'Ask a cybersecurity question...'
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
